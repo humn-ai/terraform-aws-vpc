@@ -14,7 +14,7 @@ module "label" {
 }
 
 resource "aws_vpc" "default" {
-  count                            = module.vpc_label.context ? 1 : 0
+  count                            = local.enabled ? 1 : 0
   cidr_block                       = var.cidr_block
   instance_tenancy                 = var.instance_tenancy
   enable_dns_hostnames             = var.enable_dns_hostnames
