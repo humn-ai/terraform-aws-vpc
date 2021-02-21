@@ -1,5 +1,5 @@
 locals {
-  enabled                                         = module.vpc.enabled
+  enabled                                         = module.vpc_label.enabled
   enable_default_security_group_with_custom_rules = var.enable_default_security_group_with_custom_rules && local.enabled ? 1 : 0
   enable_internet_gateway                         = var.enable_internet_gateway && local.enabled ? 1 : 0
   additional_cidr_blocks_defined                  = local.enabled && var.additional_cidr_blocks != null ? true : false
@@ -10,11 +10,11 @@ module "label" {
   source  = "cloudposse/label/null"
   version = "0.24.1"
 
-  context = module.vpc.context
+  context = module.vpc_label.context
 }
 
 resource "aws_vpc" "default" {
-  count                            = local.enabled ? 1 : 0
+  count                            = module.vpc_label.context ? 1 : 0
   cidr_block                       = var.cidr_block
   instance_tenancy                 = var.instance_tenancy
   enable_dns_hostnames             = var.enable_dns_hostnames
