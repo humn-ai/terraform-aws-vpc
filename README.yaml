@@ -61,7 +61,6 @@ related:
 # Short description of this project
 description: |-
   Terraform module to provision a VPC with Internet Gateway.
-
 # How to use this project
 examples: |-
   ```hcl
@@ -75,9 +74,7 @@ examples: |-
     cidr_block = "10.0.0.0/16"
   }
   ```
-
   Full example with [`terraform-aws-dynamic-subnets`](https://github.com/cloudposse/terraform-aws-dynamic-subnets.git):
-
   ```hcl
   module "vpc" {
     source = "cloudposse/vpc/aws"
@@ -88,7 +85,6 @@ examples: |-
     name       = "app"
     cidr_block = "10.0.0.0/16"
   }
-
   module "dynamic_subnets" {
     source = "cloudposse/dynamic-subnets/aws"
     # Cloud Posse recommends pinning every module to a specific version
@@ -102,7 +98,6 @@ examples: |-
     cidr_block         = "10.0.0.0/16"
   }
   ```
-
 include:
   - "docs/targets.md"
   - "docs/terraform.md"
