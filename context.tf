@@ -28,7 +28,7 @@ module "vpc_label" {
   stage               = var.stage
   name                = var.name
   delimiter           = var.delimiter
-  attributes          = var.attributes
+  attributes          = concat(var.attributes, ["vpc"])
   tags                = var.tags
   additional_tag_map  = var.additional_tag_map
   label_order         = var.label_order
@@ -50,7 +50,7 @@ module "igw_label" {
   stage               = var.stage
   name                = var.name
   delimiter           = var.delimiter
-  attributes          = var.attributes
+  attributes          = concat(var.attributes, ["igw"])
   tags                = var.tags
   additional_tag_map  = var.additional_tag_map
   label_order         = var.label_order
